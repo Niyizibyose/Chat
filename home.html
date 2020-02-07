@@ -56,7 +56,27 @@
                 $username = $row_user ['user_name'];
                 $user_profile_image = $row_user['user_profile'];
             }
+
+            $total_messages = "select * from users_chats where (sender_username = '$user_name'
+             AND receiver_username = '$username') OR (receiver_username = '$user_name' AND 
+             sender_username = '$username')";
+
+             $run_messages = mysqli_query ($con , $total_messages);
+             $total = mysqli_num_rows ($run_messages);
         ?>
+
+        <div class="col-md-12 right-header">
+            <div class="right-header-img">
+                <img src=" <?php ech0"$user_profile_image"; ?>">
+            </div>
+
+            <div class="right-header-detail">
+                <form method="post">
+                    <p></p>
+                </form>
+
+            </div>
+        </div>
     </div>
 
 </div>
