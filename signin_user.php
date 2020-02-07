@@ -28,7 +28,11 @@ if (isset($_POST['sign_in'])){
     }
 
     else {
-        
+        echo "
+        <div class='alert alert-danger'>
+            <strong> Check your email and password</strong>
+        </div>
+        ";
     }
 
 }
