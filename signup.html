@@ -7,14 +7,14 @@
     <meta name="viewport content="width=device-width" , initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family = Roboto|Courgette|Pacifico:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.boostrapcdn.com/boostrap/3.3.7/css/boostrap.min.css">
-    <link rel="stylesheet" href="css/signin.csss" >
+    <link rel="stylesheet" href="css/signup.csss" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.miin.js"></script>
     <script src="https://maxcdn.boostrapcdn.com/boostrap/3.3.7/js/boostrap.min.js"></script>
     </head>
 
     <body>
 
-<div class="signin-form">
+<div class="signup-form">
     <form action="" method="POST">
         <div class="form-header">
             <h2>Sign Up</h2>
@@ -28,30 +28,54 @@
 
         <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control" name="pass" placeholder="user_pass" autocomplete="off" required>
+            <input type="password" class="form-control" name="user_pass" placeholder="Password" autocomplete="off" required>
 
         </div>
 
         <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email" placeholder="jean21101999@gmail.com" autocomplete="off" required>
+            <label>Email address</label>
+            <input type="email" class="form-control" name="user_email" placeholder="jean21101999@gmail.com" autocomplete="off" required>
 
         </div>
-
-   
-
-        <div class="small"> Forgot passowrd? <a href="forgot_pass.php"> Click here </a></div><br>
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block btn-lg" name="sign_in">Sign in</button> 
+            <label>Team</label>
+            <select class="form_control" name="user-team" required>
+                <option disabled="">Select a team </option>
+                <option> Rayon Sport</option>
+                <option>Kiyovu FC</option>
+                <option> Mukura VS</option>
+                <option> APR FC</option>
+                <option> Gasogi FC</option>
+            </select>
         </div>
 
-        <?php include("signin_user.php"); ?>
+        <div class="form-group">
+            <label>Team</label>
+            <select class="form_control" name="user-gender" required>
+                <option disabled="">Select you gender </option>
+                <option> Male</option>
+                <option>Female</option>
+                <option> Others</option>
+             
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required> I accept the <a href="#"> Terms of Use</a> &amp; <a href="#"> Privacy Policy</a></label>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" name="sign_up">Sign up</button> 
+        </div>
+
+
+        <?php include("signup_user.php"); ?>
 
        
     </form>
 </div>
-<div class="text-center small" style="color: #674288;">Don't have an account? <a href="signup.php"> Create one  </a></div>
+<div class="text-center small" style="color: #674288;">Have an account? <a href="signin.php"> Sign In</a></div>
 
     </body>
 
