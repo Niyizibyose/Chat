@@ -30,6 +30,20 @@ if (isset($_POST['sign_up'])){
         echo "<script> window.open ('signup.php' , '_self' ) </script>";
         exit();
     }
+
+    if ($rand == 1){
+        $profile_pic = "img/Mapinduzi.jpeg";
+    else if ($rand == 2
+        $profile_pic = "img/image1.jpeg";
+
+    $insert = "insert into users (user_name , user_pass , user_email , user_profile , user_team , user_gender) valuse ('$name', '$pass', '$email', '$profile_pic', '$team', '$gender')";
+    $query = mysqli_query ($con , $insert);
+
+    if($query){
+        echo "<script> alert ('Congratulation $name , your account has been created successfully')</script>";
+    }
+
+    }
 }
 
 
