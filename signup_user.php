@@ -33,7 +33,7 @@ if (isset($_POST['sign_up'])){
 
     if ($rand == 1){
         $profile_pic = "img/Mapinduzi.jpeg";
-    else if ($rand == 2
+    else if ($rand == 2){
         $profile_pic = "img/image1.jpeg";
 
     $insert = "insert into users (user_name , user_pass , user_email , user_profile , user_team , user_gender) valuse ('$name', '$pass', '$email', '$profile_pic', '$team', '$gender')";
@@ -49,6 +49,7 @@ else {
 }
     }
 }
+
 
 
 
