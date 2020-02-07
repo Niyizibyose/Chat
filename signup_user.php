@@ -41,8 +41,12 @@ if (isset($_POST['sign_up'])){
 
     if($query){
         echo "<script> alert ('Congratulation $name , your account has been created successfully')</script>";
+        echo "<script> window.open ('signin.php' , '_self') </script>";
     }
-
+else {
+    echo "<script> alert ('Registration failed, try again') </script> ";
+    echo "<script> window.open ('signup.php' , '_self') </script>";
+}
     }
 }
 
