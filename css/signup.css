@@ -62,6 +62,16 @@ body {
      margin-bottom: 20px;
  }
 
+ .signup-form label{
+     font-weight: normal;
+     font-size: 13px;
+ }
+
+ .signup-form input[type="checkbox"]{
+     margin-top: 2px;
+
+ }
+
  .signup-form .btn{
      font-size: 16px;
      font-weight: bold;
