@@ -40,25 +40,25 @@
 
         </div>
 
-        <div class="form-group">
-            <label>Team</label>
+        <div class="form-group" name="user-team">
+            <label name="user-team">Team</label>
             <select class="form_control" name="user-team" required>
-                <option disabled="">Select a team </option>
-                <option> Rayon Sport</option>
-                <option>Kiyovu FC</option>
-                <option> Mukura VS</option>
-                <option> APR FC</option>
-                <option> Gasogi FC</option>
+                <option disabled="" name="user-team">Select a team </option>
+                <option name="user-team"> Rayon Sport</option>
+                <option name="user-team">Kiyovu FC</option>
+                <option name="user-team"> Mukura VS</option>
+                <option name="user-team"> APR FC</option>
+                <option name="user-team"> Gasogi FC</option>
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Team</label>
+        <div class="form-group"  name="user-gender">
+            <label  name="user-gender">Team</label>
             <select class="form_control" name="user-gender" required>
-                <option disabled="">Select you gender </option>
-                <option> Male</option>
-                <option>Female</option>
-                <option> Others</option>
+                <option disabled=""  name="user-gender">Select you gender </option>
+                <option  name="user-gender"> Male</option>
+                <option  name="user-gender">Female</option>
+                <option  name="user-gender"> Others</option>
              
             </select>
         </div>

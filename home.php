@@ -52,7 +52,7 @@
                 global $con;
                 $get_username = $_GET ['user_name'];
                 $get_user = "select * from users where user_name = '$get_username'";
-                $run_user = mysqli_quer ($con , $get_user);
+                $run_user = mysqli_query ($con , $get_user);
 
                 $row_user = mysqli_fetch_array ($run_user);
                 $username = $row_user ['user_name'];
@@ -74,13 +74,75 @@
 
             <div class="right-header-detail">
                 <form method="post">
-                    <p></p>
+                    <p> <?php echo "$user_name"; ?></p>
+                    <span><?php echo $total; ?> messages </span>&nbsp &nbsp
+                    <button name="logout" class="btn btn-danger">Logout </button>
                 </form>
+
+                <?php
+
+                    if(isset($_POST['logout'])){
+                        $update_msg = mysqli_query($con, "UPDATE users SET log_in='Offline' WHERE user_name='$user_name'");
+                        header ("Location:logout.php");
+                        exit();
+                    }
+                ?>
 
             </div>
         </div>
     </div>
+<div class="row>
+    <div id="scrolling_to_bottom" class="col-md-12 right-header-contentChat"> </div>
+    <?php
+          $update_msg = mysqli_query($con, "UPDATE users SET log_in='Offline' WHERE user_name='$user_name'");
 
+          $sel_msg = "select * from user_chats where (sender_username = '$user_name' AND receiver_username = '$username' OR
+          (receiver_username= '$username' AND sender_username = '$username' ORBER by 1 ASC";
+
+          $run_msg = mysqli_query ($con , $sel_msg);
+
+          while ($row = mysqli_fetch_array($run_msg)){
+              $sender_username = $row ['sender_username'];
+              $receiver_username = $row['receiver_username'];
+              $msg_content = $row ['msg_content'];
+              $msg_date = $row ['msg_date'];
+          
+    ?>
+    <ul>
+            <?php
+                if ($user_name == $sender_username AND $user_name == $receiver_username){
+
+                    echo "
+                    <li>
+                    <div class='rightside-chat>
+                      <span> $user_name <small> $msg_date </small></span>
+                      <p>$msg_content</p>
+                      
+                    </div>
+                    </li>
+                    ";
+                }
+
+                else if ($user_name == $receiver_username AND $user_name == $sender_username){
+
+                    echo "
+                    <li>
+                    <div class='rightside-chat>
+                      <span> $user_name <small> $msg_date </small></span>
+                      <p>$msg_content</p>
+                      
+                    </div>
+                    </li>";
+
+            ?>
+    </ul>
+    <?php
+                }
+            }
+        
+    ?>
+
+</div>
 </div>
 </div>
 </div>
