@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+include ("include/connection.php");
+
+if(!isset($_SESSION ['user_email'])){
+    header ("location: signin.php");
+}
+?>
+
 <html>
     <head>
     <title> My Chat </title>
@@ -7,9 +17,9 @@
     <meta name="viewport content="width="device-width" , initial-scale="1">
     <link href="https://fonts.googleapis.com/css?family = Roboto|Courgette|Pacifico:400,700" rel="stylesheet">
   <!--<link rel="stylesheet" href="https://maxcdn.boostrapcdn.com/boostrap/3.3.7/css/boostrap.min.css"> -->
-    <link rel="stylesheet" href="css/signin.csss" >
+    <link rel="stylesheet" href="css/signin.css" >
     <link rel="stylesheet" href="css/home.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.miin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <!--   <script src="https://maxcdn.boostrapcdn.com/boostrap/3.3.7/js/boostrap.min.js"></script> -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -38,7 +48,7 @@
 <div class="col-md-9 col-sm-9 col-xs-12 right-sidebar">
     <div class="row">
         <?php 
-            $user = $_SESSION ['user-email'];
+            $user = $_SESSION['user_email'];
             $get_user = "select * from users where user_email = '$user'";
             $run_user = mysqli_query ($con , $get_user);
             $row = mysqli_fetch_array ($run_user);
@@ -60,9 +70,9 @@
                 $user_profile_image = $row_user['user_profile'];
             }
 
-            $total_messages = "select * from users_chats where (sender_username = '$user_name'
-             AND receiver_username = '$username') OR (receiver_username = '$user_name' AND 
-             sender_username = '$username')";
+            $total_messages = "select * from users_chat where (sender_username = '$user_name'
+             AND receiver_username = '$user_name') OR (receiver_username = '$user_name' AND 
+             sender_username = '$user_name')";
 
              $run_messages = mysqli_query ($con , $total_messages);
              $total = mysqli_num_rows ($run_messages);
@@ -70,7 +80,7 @@
 
         <div class="col-md-12 right-header">
             <div class="right-header-img">
-                <img src=" <?php echo"$user_profile_image"; ?>">
+                <img src=<?php echo "$user_profile_image"; ?>>
             </div>
 
             <div class="right-header-detail">
@@ -97,8 +107,8 @@
     <?php
           $update_msg = mysqli_query($con, "UPDATE users SET log_in='Offline' WHERE user_name='$user_name'");
 
-          $sel_msg = "select * from user_chats where (sender_username = '$user_name' AND receiver_username = '$username' OR
-          (receiver_username= '$username' AND sender_username = '$username' ORBER by 1 ASC";
+          $sel_msg = "select * from users_chat where (sender_username = '$user_name' AND receiver_username = '$user_name' OR
+          (receiver_username= '$user_name' AND sender_username = '$user_name' ORBER by 1 ASC";
 
           $run_msg = mysqli_query ($con , $sel_msg);
 
@@ -186,7 +196,7 @@ else if(strlen ($msg) >100){
 }
 
 else {
-    $insert = "insert into users_chats (sender_username, receiver_username , msg_content , msg_status , msg_date)
+    $insert = "insert into users_chat (sender_username, receiver_username , msg_content , msg_status , msg_date)
     values ('$user_name', '$username' , '$msg', 'unread' , NOW())";
 
     $run_insert = mysqli_query ($con , $insert);
@@ -194,6 +204,20 @@ else {
 }
 
 ?>
+<script>
+$('#scrolling_to_bottom').animate ({
+    scrollTop: $('#scrolling_to_bottom').get(0).scrollHeight}, 1000);
+    </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var height = $(window).height();
+    $('.left-chat').css ('height' , (height -92) + 'px');
+    $('.right-header-contentChat').css ('height', (height - 163) + 'px');
+
+});
+
+</script>
 
 </body>
 </html>
+<?php ?>
