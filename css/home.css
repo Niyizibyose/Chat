@@ -170,3 +170,28 @@
     color: #94c2ed;
 }
 
+.rightside-right-chat span{
+    float: right;
+}
+
+.rightside-right-chat span small, .rightside-left-chat span small {
+    color: #bdbdc2;
+}
+
+.rightside-left-chat:before{
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    bottom: 150px;
+    border: 15px solid transparent;
+    border-bottom-color: #94c2ed;
+
+}
+
+@media only screen and (max-width: 320px){
+    .main-section{
+        display: none;
+    }
+}
+

@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-<div class="row>
+<div class="row">
     <div id="scrolling_to_bottom" class="col-md-12 right-header-contentChat"> </div>
     <?php
           $update_msg = mysqli_query($con, "UPDATE users SET log_in='Offline' WHERE user_name='$user_name'");
