@@ -144,8 +144,55 @@
 
 </div>
 </div>
+
+<div class="row">
+            <div class="col-md-12 right-chat-texbox">
+                    <form method="post">
+                        <input type="text" autocomplete="off" name="msg_content" placeholder="writw..">
+
+                        <button class="btn" name="submit"> <i class="fa fa-telegram" aria-hidden="true"></i><button>
+                    </form>
+            </div>
+
+</div>
+
 </div>
 </div>
+
+<?php
+if (isset($_POST['submit'])){
+    $msg = htmlentities($_POST['msg_content']);
+
+    if ($msg == ""){
+        echo "
+        <div class='alert alert-danger'>
+            <strong><center> Message null cannot be send </center></strong>
+
+        </div>
+        ";
+
+        
+    
+}
+else if(strlen ($msg) >100){
+    echo "
+    <div class='alert alert-danger'>
+
+        <strong><center> Message is too long </center></strong>
+
+        </div>
+    ";
+}
+
+else {
+    $insert = "insert into users_chats (sender_username, receiver_username , msg_content , msg_status , msg_date)
+    values ('$user_name', '$username' , '$msg', 'unread' , NOW())";
+
+    $run_insert = mysqli_query ($con , $insert);
+}
+}
+
+?>
 
 </body>
 </html>
