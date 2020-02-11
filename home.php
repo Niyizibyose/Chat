@@ -31,8 +31,7 @@ if(!isset($_SESSION ['user_email'])){
             <div class="col-md-3 col-sm-3 col-xs-12 left-sidebar">
                 <div class="input-group-btn">
                     <div class="input-group-btn">
-                        <center><a href="include/find_friends.php"><button class="btn btn-default
-                    search-icon" name="search_user" type="submit"> Add new user </button></a></center>
+                        <center><a href="include/find_friends.php"><button class="btn btn-search-icon" name="search_user" type="submit"> Add new user </button></a></center>
 </div>
 </div>
 
@@ -80,13 +79,13 @@ if(!isset($_SESSION ['user_email'])){
 
         <div class="col-md-12 right-header">
             <div class="right-header-img">
-                <img src=<?php echo "$user_profile_image"; ?>>
+                <img src='<?php echo '$user_profile_image'; ?>'>
             </div>
 
             <div class="right-header-detail">
                 <form method="post">
                     <p> <?php echo "$user_name"; ?></p>
-                    <span><?php echo $total; ?> messages </span>&nbsp &nbsp
+                    <span><?php echo "$total"; ?> messages </span>&nbsp &nbsp
                     <button name="logout" class="btn btn-danger">Logout </button>
                 </form>
 
@@ -125,8 +124,8 @@ if(!isset($_SESSION ['user_email'])){
 
                     echo "
                     <li>
-                    <div class='rightside-chat>
-                      <span> $user_name <small> $msg_date </small></span>
+                    <div class='rightside-right-chat'>
+                      <span> $user_name <small> $msg_date </small></span> <br><br>
                       <p>$msg_content</p>
                       
                     </div>
@@ -138,8 +137,8 @@ if(!isset($_SESSION ['user_email'])){
 
                     echo "
                     <li>
-                    <div class='rightside-chat>
-                      <span> $user_name <small> $msg_date </small></span>
+                    <div class='rightside-left-chat'>
+                      <span> $user_name <small> $msg_date </small></span><br><br>
                       <p>$msg_content</p>
                       
                     </div>
@@ -159,7 +158,7 @@ if(!isset($_SESSION ['user_email'])){
 <div class="row">
             <div class="col-md-12 right-chat-texbox">
                     <form method="post">
-                        <input type="text" autocomplete="off" name="msg_content" placeholder="writw..">
+                        <input type="text" autocomplete="off" name="msg_content" placeholder="Your message..">
 
                         <button class="btn" name="submit"> <i class="fa fa-telegram" aria-hidden="true"></i><button>
                     </form>

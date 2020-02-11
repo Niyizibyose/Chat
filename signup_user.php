@@ -6,8 +6,8 @@ if (isset($_POST['sign_up'])){
     $name = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_name']));
     $pass = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_pass']));
     $email = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_email']));
-    //$team = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_team']));
-    //$gender = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_gender']));
+    $team = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_team']));
+    $gender = htmlentities(mysqli_real_escape_string ($con , $_POST ['user_gender']));
     $rand = rand(1,2);
 
     if ($name == ''){
