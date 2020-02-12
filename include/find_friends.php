@@ -39,12 +39,13 @@ if(isset($_SESSION ['user_email'])){
             echo "<a class='navbar-brand' href='../home.php?user_name=$user_name'> MyChat</a> ";
 
             ?>
+              </a>
             <ul class="navbaar-nav">
                 <li><a style="color:white; text-decoration: none; font-size:20px;" 
                 href="../account_settings.php"> Settings </a></li>
             </ul>
-        </a>
-    </nav> </br>
+      
+    </nav> <br>
 
     <div class="row">
         <div class="col-sm-4">
