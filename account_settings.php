@@ -56,7 +56,13 @@ if(isset($_SESSION ['user_email'])){
 <tr>
     <td style="font-weight: bold;"> Change your username </td>
     <td>
-        <input type="text" name="u_name" class="form-control" required value="" <?php   ?>
+        <input type="text" name="u_name" class="form-control" required value="
+        <?php  echo $user_name; ?>" />
+</td>
+</tr>
+<tr><td></td><td><a class="btn btn-default" style:"text-decoration: none; font-size:15px; " href="upload.php">
+    <i class="fa fa-user" aria-hidden="true"></i> Change Profile </a></td></tr>
+</table>
     </form>
 
 </div>
