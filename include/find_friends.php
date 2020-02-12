@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-include ("include/connection.php");
+include ("find_friends_function.php");
 
 if(isset($_SESSION ['user_email'])){
     header ("location: signin.php");
@@ -35,13 +35,33 @@ if(isset($_SESSION ['user_email'])){
             $row = mysqli_fetch_array ($run_user);
 
             $user_name = $row ['user_name'];
-            echo "<a href='../home.php' ";
-
-
+            echo "<a class='navbar-brand' href='../home.php?user_name=$user_name'> MyChat</a> ";
 
             ?>
+            <ul class="navbaar-nav">
+                <li><a style="color:white; text-decoration: none; font-size:20px;" 
+                href="../account_settings.php"> Settings </a></li>
+            </ul>
         </a>
-    </nav>
+    </nav> </br>
+
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+
+        <div class="col-sm-4">
+        <form class="search_form" action="">
+        <input type="text" name="search_query" placeholder="Search Friends" autocomplete="off" required>
+
+        <button class="btn" type="submit" name="search_btn"> Search </button>
+        </form>
+
+    </div>
+
+    <div class="col-sm--4">
+    </div>
+    </div>
+    <?php search_user(); ?>
 
 </body>
 </html>
