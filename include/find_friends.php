@@ -27,7 +27,7 @@ if(isset($_SESSION ['user_email'])){
     </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" href="#">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="#">
             <?php
             $user = $_SESSION ['user_email'];
