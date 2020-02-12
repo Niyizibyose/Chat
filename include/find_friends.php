@@ -22,11 +22,12 @@ if(isset($_SESSION ['user_email'])){
    <!--   <script src="https://maxcdn.boostrapcdn.com/boostrap/3.3.7/js/boostrap.min.js"></script> -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.boostrap.com/font-awesome/4.7.0/css/font-awesome.min.css"
     </head>
 
 <body>
-    <nav class="navbar-brand" href="#">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" href="#">
         <a class="navbar-brand" href="#">
             <?php
             $user = $_SESSION ['user_email'];
